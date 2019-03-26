@@ -1,0 +1,35 @@
+﻿@model testproject.Patient
+
+@{
+    ViewData["Title"] = "Delete patient";
+}
+
+<h1 class="text-center"> Delete</h1>
+
+<h3 class="text-center">Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <h4 class="card-header"> Patient </h4>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2 table-primary table-bordered">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2 table-primary table-bordered">
+                @Html.DisplayNameFor(model => model.Surname)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Surname)
+            </dd>
+        </dl>
+    </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+        
+</div>

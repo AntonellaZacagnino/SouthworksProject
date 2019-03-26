@@ -1,0 +1,22 @@
+networks:
+  default:
+    external:
+      name: nat
+services:
+  testproject:
+    build:
+      context: C:\Users\Ann\source\repos\testproject
+      dockerfile: testproject\Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: testproject
+    ports:
+    - published: 52445
+      target: 80
+    - published: 44340
+      target: 443
+    volumes:
+    - C:\Users\Ann\AppData\Roaming\ASP.NET\Https:C:\Users\ContainerUser\AppData\Roaming\ASP.NET\Https:ro
+    - C:\Users\Ann\AppData\Roaming\Microsoft\UserSecrets:C:\Users\ContainerUser\AppData\Roaming\Microsoft\UserSecrets:ro
+version: '3.4'
